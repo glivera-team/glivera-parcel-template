@@ -17,22 +17,9 @@
 		"lint": "npx lint-staged --quiet"
 	},
 	"dependencies": {
-		"parcel": "^2.9.3",
 		"@parcel/config-default": "^2.9.3",
 		"@parcel/transformer-pug": "^2.9.3",
 		"@parcel/transformer-sass": "^2.9.3",
-		"ismobilejs": "^1.1.1",
-		"parcel-bundler": "^1.12.5",
-		"parcel-packager-svg-sprite": "^2.0.0",
-		"parcel-plugin-ignore-assets": "^1.0.0",
-		"parcel-plugin-svg-sprite": "^1.4.1",
-		"parcel-transformer-svg-sprite": "^2.0.0",
-		"sharp": "^0.31.3",
-		"gsap": "^3.10.4",
-		"regenerator-runtime": "^0.13.9",
-		"prettier": "2.8.3",
-		"lint-staged": "^13.1.0",
-		"husky": "^8.0.0",
 		"eslint": "^8.4.1",
 		"eslint-config-airbnb": "^19.0.0",
 		"eslint-config-prettier": "^8.6.0",
@@ -40,7 +27,20 @@
 		"eslint-plugin-jsx-a11y": "^6.5.1",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.27.0",
-		"eslint-plugin-react-hooks": "^4.3.0"
+		"eslint-plugin-react-hooks": "^4.3.0",
+		"gsap": "^3.10.4",
+		"husky": "^8.0.0",
+		"ismobilejs": "^1.1.1",
+		"lint-staged": "^13.1.0",
+		"parcel": "^2.9.3",
+		"parcel-bundler": "^1.12.5",
+		"parcel-packager-svg-sprite": "^2.0.0",
+		"parcel-plugin-ignore-assets": "^1.0.0",
+		"parcel-plugin-svg-sprite": "^1.4.1",
+		"parcel-transformer-svg-sprite": "^2.0.0",
+		"prettier": "2.8.3",
+		"regenerator-runtime": "^0.13.9",
+		"sharp": "^0.31.3"
 	},
 	"resolvers": [
 		"parcel-resolver-exclude-assets",
@@ -85,5 +85,9 @@
 			"prettier --check --config .prettierrc"
 		],
 		"*.{js,jsx}": "eslint --quiet"
+	},
+	"devDependencies": {
+		"@parcel/packager-xml": "^2.9.3",
+		"@parcel/transformer-xml": "^2.9.3"
 	}
 }
