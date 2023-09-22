@@ -1,11 +1,13 @@
 /* eslint-disable no-plusplus */
+import { SITEMAP } from './sitemap';
+
 const pageWidget = (pages) => {
 	let widgetWrap = document.createElement('div');
 	widgetWrap.className = 'widget_wrap';
 
 	let widgetList = '';
 	for (let i = 0; i < pages.length; i++) {
-		widgetList += `<li class="widget_item"><a class="widget_link" href="${pages[i]}.html">${pages[i]}</a></li>`;
+		widgetList += `<li class="widget_item"><a class="widget_link" href="${pages[i]}">${pages[i]}</a></li>`;
 	}
 	widgetWrap.innerHTML = `<ul class="widget_list">${widgetList}</ul>`;
 	document.body.appendChild(widgetWrap);
@@ -15,21 +17,11 @@ const pageWidget = (pages) => {
 	widgetWrap.innerHTML += widgetStyles;
 };
 
-const pageWidgetArray = [];
-
-const pagesArray = PAGES;
+const pagesArray = SITEMAP || [];
 
 const pageWidgetInit = () => {
 	if (typeof pagesArray !== 'undefined' && pagesArray.length > 0) {
-		// console.log('dev functions loaded');
-
-		pagesArray.forEach((page) => {
-			const pageName = page.split('.').slice(0, -1).join('.');
-			pageWidgetArray.push(pageName);
-		});
-
-		// console.log(pageWidgetArray);
-		pageWidget(pageWidgetArray);
+		pageWidget(pagesArray);
 	}
 };
 

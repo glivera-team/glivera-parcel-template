@@ -1,8 +1,8 @@
 mixin no_use(array)
 	.no_use
 //--------------------------------------------------------------global vars
-- environment = htmlWebpackPlugin.options.environment;
+- environment = process.env.NODE_ENV || 'development'
 - array = '';
-- assetsImage = 'images/';
+- assetsImage = '/src/images/';
 
 //--------------------------------------------------------------forms

@@ -7,11 +7,7 @@
 		"es2021": true
 	},
 
-	"ignorePatterns": [
-		"srs/js/vendors/*.js",
-		"srs/js/dev_vendors/*.js",
-		"helpers/*.*"
-	],
+	"ignorePatterns": ["srs/js/vendors/*.js", "srs/js/dev_vendors/*.js", "helpers/*.*"],
 	"plugins": ["prettier"],
 	"rules": {
 		"indent": [2, "tab"],
@@ -57,8 +53,7 @@
 	"globals": {
 		"browser": false,
 		"window": true,
-		"document": true,
-		"PAGES": true
+		"document": true
 	},
 	"parserOptions": {
 		"ecmaVersion": 12,

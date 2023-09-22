@@ -1,13 +1,13 @@
 {
 	"author": "Glivera-team",
-	"name": "glivera-webpack-template",
+	"name": "glivera-parcel-template",
 	"version": "1.0.0",
 	"description": "Web Develpoment template - parcel builder, default layout, snippets",
 	"directories": {
 		"src": "src"
 	},
 	"scripts": {
-		"start": "node dev-scripts.js && parcel serve src/pug/pages/*.pug",
+		"start": "node dev-scripts.js && parcel serve src/pug/pages/*.pug --open --port=8080",
 		"build": "parcel build src/pug/pages/index.pug --dist-dir=build --no-source-maps --no-cache",
 		"dev": "npm run start",
 		"prepare": "npx husky install",
@@ -52,7 +52,9 @@
 		"images": "/src/images",
 		"utils": "/src/js/utils",
 		"layout": "/src/js/layout",
-		"dev-vendors": "/src/js/dev-vendors"
+		"components": "/src/js/components",
+		"dev-vendors": "/src/js/dev-vendors",
+		"vendors": "/src/js/vendors"
 	},
 	"resolutions": {},
 	"browserslist": [

@@ -13,6 +13,7 @@
 *.swp
 tags
 nbproject/*
+.parcel-cache
 
 # Windows
 Thumbs.db
@@ -23,5 +24,6 @@ npm-debug.log
 build/
 source/
 public/
+package-lock.json
 
 node_modules/

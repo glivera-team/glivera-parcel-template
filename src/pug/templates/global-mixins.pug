@@ -21,11 +21,6 @@ mixin head(array)
 		content='telephone=no'
 	)
 
-	link(
-		rel='shortcut icon',
-		href=`${assetsImage}favicon.ico`
-	)
-
 	if environment === 'production'
 		link(
 			rel='icon',
@@ -271,9 +266,10 @@ mixin social(socialArray)
 
 //- works
 mixin icon(name, mod)
-	- mod = mod || '';
+	- mod = mod || 'icon--size_mod';
 	svg(class=`icon icon_${name} ${mod}`)
-		use(xlink:href=`${assetsImage}sprite/sprite.svg#${name}`)
+		use(xlink:href=`${assetsImage}/icons/sprite-icons/${name}.svg`)
+
 
 mixin pagination(config)
 	- config.mod = config.mod || '';
@@ -331,12 +327,14 @@ mixin picture(data)
 			//- sub array of types, ex:[[jpg], [webp]]
 			each subType, j in type
 				- mimeType = subType === 'jpg' ? 'jpeg' : subType;
-				- isWebp = subType === 'webp' ? '.webp' : '';
 
 				if media
 					- mediaAttr = i === 0 ? `(min-width: ${media}px)` : `(max-width: ${media - 1}px)`;
 
-				- srcSet = `${pathArray[i]}.${type[defaultTypeIndex]}${isWebp}${is2x ? `, ${pathArray[i]}@2x.${type[defaultTypeIndex]}${isWebp} 2x` : ''}`
+				if subType === 'webp'
+					- srcSet = `url:${pathArray[i]}.${type[defaultTypeIndex]}?as=webp${is2x ? `, url:${pathArray[i]}@2x.${type[defaultTypeIndex]}?as=webp 2x` : ''}`
+				else
+					- srcSet = `${pathArray[i]}.${type[defaultTypeIndex]}${is2x ? `, ${pathArray[i]}@2x.${type[defaultTypeIndex]} 2x` : ''}`
 
 				source(
 					media=mediaAttr,

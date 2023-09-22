@@ -1,5 +1,5 @@
 import { page } from '../utils';
 
 page(() => {
-	console.log('homepage page loaded');
+	console.log('homepage loaded');
 });

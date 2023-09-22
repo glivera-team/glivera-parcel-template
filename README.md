@@ -23,9 +23,7 @@ build                        # Production build
 dist                         # Dev build
 public                       # Production WP build
 helpers                      # All type samples and plugins
-├── components               # Samples
-├── components_vanilla       # Vanilla js helpers
-settings                     # Webpack configs
+├── components               # Snippets & Vanilla js helpers
 src                          # Sources
 ├── fonts                    # Fonts template
 │   ├── icons                # Iconfont template
@@ -35,12 +33,12 @@ src                          # Sources
 │   |   ├── sprite-icons     # Icons used in sprite
 ├── js                       # Scripts template
 │   ├── components           # JS-components
-│   ├── dev-vendors          # Functions for develop, unused in production
+│   ├── dev-vendors          # Develop functions, unused in production
 │   ├── layout               # Layout function for init global JS-components or Critical scripts
-│   ├── pages                # JS-pages for init specific components
+│   ├── pages                # Page root functions
 │   ├── utils                # Constants, helpers functions
 │   ├── vendors              # Libriaries, plugins template
-│   ├── app.js             	 # Global layout combining layout and page scripts
+│   ├── app.js             	 # App root function
 ├── pug                      # Layout templates
 │   ├── blocks               # Layout of components
 │   │   ├── universal        # Layout of universal components
@@ -61,16 +59,7 @@ src                          # Sources
 │   ├── ui                   # Styles for global ui(forms, buttons, icons)
 │   ├── plugins              # Styles for plugins
 │   ├── static               # Static files
-.env                         # Environment configuration
-.babelrc                     # Babel configuration
-.editorconfig                # Configuring code editor settings
-.gitignore                   # List of excluded files from Git
-.eslintrc                    # Eslint rules
-.sasslintrc                  # Sasslint rules
-postcss.config.js            # Configuration of CSS post-processing
-webpack.config.js            # Configuration for launching webpack tasks
-package.json                 # List of modules and other information
-readme.md                    # Documentation template
+
 ```
 
 ## Rules:
