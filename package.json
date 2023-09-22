@@ -1,0 +1,87 @@
+{
+	"author": "Glivera-team",
+	"name": "glivera-webpack-template",
+	"version": "1.0.0",
+	"description": "Web Develpoment template - parcel builder, default layout, snippets",
+	"directories": {
+		"src": "src"
+	},
+	"scripts": {
+		"start": "node dev-scripts.js && parcel serve src/pug/pages/*.pug",
+		"build": "parcel build src/pug/pages/index.pug --dist-dir=build --no-source-maps --no-cache",
+		"dev": "npm run start",
+		"prepare": "npx husky install",
+		"js-lint": "eslint ./src --config",
+		"pretty": "npx prettier --check .",
+		"pretty:fix": "npx prettier --write .",
+		"lint": "npx lint-staged --quiet"
+	},
+	"dependencies": {
+		"parcel": "^2.9.3",
+		"@parcel/config-default": "^2.9.3",
+		"@parcel/transformer-pug": "^2.9.3",
+		"@parcel/transformer-sass": "^2.9.3",
+		"ismobilejs": "^1.1.1",
+		"parcel-bundler": "^1.12.5",
+		"parcel-packager-svg-sprite": "^2.0.0",
+		"parcel-plugin-ignore-assets": "^1.0.0",
+		"parcel-plugin-svg-sprite": "^1.4.1",
+		"parcel-transformer-svg-sprite": "^2.0.0",
+		"sharp": "^0.31.3",
+		"gsap": "^3.10.4",
+		"regenerator-runtime": "^0.13.9",
+		"prettier": "2.8.3",
+		"lint-staged": "^13.1.0",
+		"husky": "^8.0.0",
+		"eslint": "^8.4.1",
+		"eslint-config-airbnb": "^19.0.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-import": "^2.25.3",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-react": "^7.27.0",
+		"eslint-plugin-react-hooks": "^4.3.0"
+	},
+	"resolvers": [
+		"parcel-resolver-exclude-assets",
+		"@parcel/resolver-default"
+	],
+	"alias": {
+		"ScssComponents": "/src/scss/components",
+		"ScssHelpers": "/src/scss/helpers",
+		"images": "/src/images",
+		"utils": "/src/js/utils",
+		"layout": "/src/js/layout",
+		"dev-vendors": "/src/js/dev-vendors"
+	},
+	"resolutions": {},
+	"browserslist": [
+		"last 2 versions",
+		"> 5%"
+	],
+	"engines": {
+		"node": "^12 || >=14"
+	},
+	"keywords": [
+		"parcel",
+		"boilerplate",
+		"template",
+		"setup",
+		"scss",
+		"pug"
+	],
+	"target": "web",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,tsx,ts,scss,css,json,html,pug}": [
+			"prettier --debug-check",
+			"prettier --write",
+			"prettier --check --config .prettierrc"
+		],
+		"*.{js,jsx}": "eslint --quiet"
+	}
+}
