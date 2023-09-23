@@ -8,7 +8,7 @@
 	},
 	"scripts": {
 		"start": "node dev-scripts.js && parcel serve src/pug/pages/*.pug --open --port=8080",
-		"build": "parcel build src/pug/pages/index.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash",
+		"build": "parcel build src/pug/pages/index.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash --public-url=./",
 		"dev": "npm run start",
 		"prepare": "npx husky install",
 		"js-lint": "eslint ./src --config",
