@@ -1,6 +1,6 @@
 export const ENV_STATUS = {
 	projectDevStatus: process.env.NODE_ENV === 'development',
-	projectPreviewStatus: process.env.NODE_ENV === 'development',
+	projectStagingStatus: process.env.STAGING,
 };
 
 export const RADIAN = Math.PI / 180;
