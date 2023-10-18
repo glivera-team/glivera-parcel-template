@@ -1,7 +1,7 @@
 {
 	"extends": "@parcel/config-default",
 	"transformers": {
-		"*.svg": [
+		"*.icon.svg": [
 			"parcel-transformer-svg-sprite"
 		],
 		"webp:*.{jpg,jpeg,png,tiff,webp}": [
