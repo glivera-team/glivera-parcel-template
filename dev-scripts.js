@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const createSiteMap = () => {
+const createSitemap = () => {
 	const PAGES_DIR = `${path.resolve(__dirname, 'src')}/pug/pages/`;
 	const SITEMAP = fs
 		.readdirSync(PAGES_DIR)
@@ -11,11 +11,9 @@ const createSiteMap = () => {
 
 	const directoryPath = './src/js/dev-vendors';
 	const fileName = 'sitemap.js';
-	const fileContent = `
-		export const SITEMAP = [${SITEMAP}];
-	`;
+	const fileContent = `export const SITEMAP = [${SITEMAP}];`;
 
 	fs.writeFile(`${directoryPath}/${fileName}`, fileContent, () => {});
 };
 
-createSiteMap();
+createSitemap();
