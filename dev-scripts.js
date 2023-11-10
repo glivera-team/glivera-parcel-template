@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const createSitemap = () => {
 	const PAGES_DIR = `${path.resolve(__dirname, 'src')}/pug/pages/`;
