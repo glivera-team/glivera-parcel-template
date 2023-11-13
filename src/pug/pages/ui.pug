@@ -1,3 +1,6 @@
+
+
+
 extends ../layout/layout
 
 include ../templates/mixins/ui-page/m-heading
@@ -10,8 +13,18 @@ block vars
 
 block content_block
 	section.section.section_ui
-		.section_in
+		if _sitemap && environment === 'development'
+			.section_ui__in.section_ui__in--size_mod
+				+heading({
+					title: 'Pages preview',
+				})
+				.section_ui__pages_list.js-dev-pages-list
+					each item in _sitemap
+						if item !== 'ui' && item !== 'article'
+							a.section_ui__page_item_wrap(href=`/${item}` data-page=item)
+								iframe.section_ui__page_item(src=`./${item}.pug`)
 
+		.section_in.section_ui__in
 			//- introducing
 			.section_ui__block
 				+heading({
@@ -25,7 +38,6 @@ block content_block
 					category: 'Typography',
 					text: 'This section contains all text elements: titles, texts.',
 				})
-				include ../blocks/universal/ui-page/typography
 
 			//- buttons
 			.section_ui__block
