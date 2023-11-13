@@ -8,10 +8,10 @@
 	},
 	"scripts": {
 		"dev": "npm run start",
-		"start": "node dev-scripts.mjs && parcel serve src/pug/pages/*.pug --open --port=8080",
-		"build": "parcel build src/pug/pages/*.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash --public-url=./",
-		"staging": "node dev-scripts.mjs && cross-env STAGING=true npm run build",
-		"debug": "node dev-scripts.mjs && parcel serve src/pug/pages/*.pug --no-cache --port=8080",
+		"start": "node dev-prebuild.mjs && parcel serve src/pug/pages/*.pug --open --port=8080",
+		"build": "node dev-clear-cache.mjs && parcel build src/pug/pages/*.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash --public-url=./",
+		"staging": "node dev-prebuild.mjs && cross-env STAGING=true npm run build",
+		"debug": "node dev-prebuild.mjs && parcel serve src/pug/pages/*.pug --no-cache --port=8080",
 		"clear": "node dev-clear-cache.mjs",
 		"prepare": "npx husky install",
 		"js-lint": "eslint ./src --config",
@@ -20,9 +20,16 @@
 		"lint": "npx lint-staged --quiet"
 	},
 	"dependencies": {
+		"gsap": "^3.10.4",
+		"ismobilejs": "^1.1.1"
+	},
+	"devDependencies": {
+		"@gatsbyjs/parcel-namer-relative-to-cwd": "^2.12.1",
 		"@parcel/config-default": "^2.9.3",
+		"@parcel/packager-xml": "^2.9.3",
 		"@parcel/transformer-pug": "^2.9.3",
 		"@parcel/transformer-sass": "^2.9.3",
+		"@parcel/transformer-xml": "^2.9.3",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.4.1",
 		"eslint-config-airbnb": "^19.0.0",
@@ -32,28 +39,26 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-react": "^7.27.0",
 		"eslint-plugin-react-hooks": "^4.3.0",
-		"gsap": "^3.10.4",
 		"husky": "^8.0.0",
-		"ismobilejs": "^1.1.1",
 		"lint-staged": "^13.1.0",
 		"parcel": "^2.9.3",
 		"parcel-bundler": "^1.12.5",
+		"parcel-namer-custom": "^0.2.0",
+		"parcel-namer-rewrite": "^2.0.0-rc.3",
 		"parcel-packager-svg-sprite": "^2.0.0",
 		"parcel-plugin-ignore-assets": "^1.0.0",
 		"parcel-plugin-svg-sprite": "^1.4.1",
+		"parcel-resolver-exclude-assets": "^2.0.1",
 		"parcel-transformer-svg-sprite": "^2.0.0",
 		"prettier": "2.8.3",
 		"regenerator-runtime": "^0.13.9",
 		"sharp": "^0.31.3"
 	},
-	"resolvers": [
-		"parcel-resolver-exclude-assets",
-		"@parcel/resolver-default"
-	],
 	"alias": {
 		"ScssComponents": "/src/scss/components",
 		"ScssHelpers": "/src/scss/helpers",
 		"images": "/src/images",
+		"./images/*": "/src/images/*",
 		"utils": "/src/js/utils",
 		"layout": "/src/js/layout",
 		"components": "/src/js/components",
@@ -90,8 +95,22 @@
 		],
 		"*.{js,jsx}": "eslint --quiet"
 	},
-	"devDependencies": {
-		"@parcel/packager-xml": "^2.9.3",
-		"@parcel/transformer-xml": "^2.9.3"
+	"parcel-namer-rewrite": {
+		"chain": "@parcel/namer-default",
+		"hashing": "always",
+		"disable": false,
+		"rules": {
+			"(.*(?:favicon|browserconfig).*).(xml|png|ico)": "favicon/$1.{hash}.$2",
+			"(.*(?:iconfont).*).(svg|woff|eot|ttf)": "fonts/icons/$1.{hash}.$2",
+			"(.*).(scss|css|sass)": "css/$1.{hash}.$2",
+			"(.*).(js|mjs|jsx|ts|tsx)": "js/$1.{hash}.$2",
+			"(.*).(woff2|woff|eot|ttf|otf)": "fonts/$1.{hash}.$2",
+			"(^(?!.*(?:favicon|iconfont)).*).(png|jpg|jpeg|webp|svg|mp4)": "images/$1.{hash}.$2"
+		},
+		"profiles": {
+			"development": {},
+			"production": {},
+			"other-custom-profile": {}
+		}
 	}
 }

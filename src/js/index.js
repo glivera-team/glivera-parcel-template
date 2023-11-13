@@ -1,10 +1,10 @@
 // scss
-import './scss/main-global.scss';
+import '../scss/main-global.scss';
 
 // js
 import { documentReady } from 'utils';
 import { ENV_STATUS } from 'utils/constants';
-import app from './js/app';
+import app from './app';
 
 const styles = ['color: #fff', 'background: #cf8e1f'].join(';');
 const message = 'Developed by Glivera-team https://glivera-team.com/';

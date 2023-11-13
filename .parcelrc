@@ -10,5 +10,13 @@
 	},
 	"packagers": {
 		"*.html": "parcel-packager-svg-sprite"
-	}
+	},
+	"namers": [
+		"parcel-namer-rewrite",
+		"..."
+	],
+	"resolvers": [
+		"parcel-resolver-exclude-assets",
+		"@parcel/resolver-default"
+	]
 }
