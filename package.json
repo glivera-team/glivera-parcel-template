@@ -96,11 +96,10 @@
 		"disable": false,
 		"rules": {
 			"(.*(?:favicon|browserconfig).*).(xml|png|ico)": "favicon/$1.{hash}.$2",
-			"(.*(?:iconfont).*).(svg|woff|eot|ttf)": "fonts/icons/$1.{hash}.$2",
 			"(.*).(scss|css|sass)": "css/$1.{hash}.$2",
 			"(.*).(js|mjs|jsx|ts|tsx)": "js/$1.{hash}.$2",
 			"(.*).(woff2|woff|eot|ttf|otf)": "fonts/$1.{hash}.$2",
-			"(^(?!.*(?:favicon|iconfont)).*).(png|jpg|jpeg|webp|svg|mp4)": "images/$1.{hash}.$2"
+			"(^(?!.*(?:favicon)).*).(png|jpg|jpeg|webp|svg|mp4)": "images/$1.{hash}.$2"
 		},
 		"profiles": {
 			"development": {},
