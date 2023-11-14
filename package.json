@@ -102,9 +102,10 @@
 			"(^(?!.*(?:favicon)).*).(png|jpg|jpeg|webp|svg|mp4)": "images/$1.{hash}.$2"
 		},
 		"profiles": {
-			"development": {},
-			"production": {},
-			"other-custom-profile": {}
+			"development": {
+				"silent": true
+			},
+			"production": {}
 		}
 	}
 }
