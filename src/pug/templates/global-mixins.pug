@@ -268,11 +268,11 @@ mixin social(socialArray)
 mixin icon(name, mod)
 	- mod = mod || 'icon--size_mod';
 	span.icon(class=mod)
-		- const svgInline = readFileSync(`.${assetsImage}/icons/sprite-icons/${name}.svg`, "utf-8");
+		- const svgInline = readFileSync(`.${assetsImage}icons/sprite-icons/${name}.svg`, "utf-8");
 		!= svgInline
 		if environment === 'development'
 			//- need for parcel rebuild in dev mode
-			object(data=`${assetsImage}/icons/sprite-icons/${name}.svg` type="image/svg+xml" style="display: none")
+			object(data=`${assetsImage}icons/sprite-icons/${name}.svg` type="image/svg+xml" style="display: none")
 			//- need for parcel rebuild in dev mode#
 
 mixin slider_navigation(buttonMod = '')
