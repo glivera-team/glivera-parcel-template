@@ -267,7 +267,7 @@ mixin social(socialArray)
 //- works
 mixin icon(name, mod)
 	- mod = mod || 'icon--size_mod';
-	span.icon(class=mod)
+	span.icon(class=mod data-sprite-icon=name)
 		- const svgInline = readFileSync(`.${assetsImage}icons/sprite-icons/${name}.svg`, "utf-8");
 		!= svgInline
 		if environment === 'development'
