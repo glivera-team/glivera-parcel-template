@@ -10,7 +10,7 @@
 		"dev": "npm run start",
 		"start": "node dev-prebuild.mjs && parcel serve src/pug/pages/*.pug --open --port=8080",
 		"build": "node dev-clear-cache.mjs && parcel build src/pug/pages/*.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash --public-url=./ && node sprite-builder.mjs",
-		"staging": "node dev-prebuild.mjs && cross-env STAGING=true npm run build",
+		"staging": "node dev-prebuild.mjs && cross-env STAGING=true npm run build && node sprite-builder.mjs",
 		"debug": "node dev-prebuild.mjs && parcel serve src/pug/pages/*.pug --no-cache --port=8080",
 		"clear": "node dev-clear-cache.mjs",
 		"prepare": "npx husky install",
