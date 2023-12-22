@@ -268,7 +268,7 @@ mixin social(socialArray)
 mixin icon(name, mod)
 	- mod = mod || 'icon--size_mod';
 	span.icon(class=mod data-sprite-icon=name)
-		- const svgInline = readFileSync(`.${assetsImage}icons/sprite-icons/${name}.svg`, "utf-8");
+		- const svgInline = readFileSync(resolve(directoryUrl, `./src/images/icons/sprite-icons/${name}.svg`), "utf-8");
 		!= svgInline
 		if environment === 'development'
 			//- need for parcel rebuild in dev mode
