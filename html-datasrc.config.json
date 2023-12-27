@@ -1,0 +1,4 @@
+{
+	"img": ["data-src", "your-custom-data-attribute"],
+	"div": ["your-custom-data-attribute"]
+}

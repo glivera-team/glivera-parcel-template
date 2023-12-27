@@ -32,7 +32,7 @@ const selectFilesRecursive = (rootUrl, onMatch) => {
 };
 
 // ---------------------------------------------
-const buildDir = path.resolve(__dirname, './build');
+const buildDir = path.resolve(__dirname, '../build');
 const buildData = [];
 selectFilesRecursive(buildDir, (fileData) => {
 	buildData.push(fileData);
@@ -40,11 +40,11 @@ selectFilesRecursive(buildDir, (fileData) => {
 // ---------------------------------------------###
 
 // ---------------------------------------------
-const srcDir = path.resolve(__dirname, './src');
-const srcData = [];
-selectFilesRecursive(srcDir, (fileData) => {
-	srcData.push(fileData);
-});
+// const srcDir = path.resolve(__dirname, '../src');
+// const srcData = [];
+// selectFilesRecursive(srcDir, (fileData) => {
+// 	srcData.push(fileData);
+// });
 // ---------------------------------------------###
 
 // ---------------------------------------------

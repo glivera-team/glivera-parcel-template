@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const createSitemap = () => {
-	const PAGES_DIR = `${path.resolve(__dirname, 'src')}/pug/pages/`;
+	const PAGES_DIR = `${path.resolve(__dirname, '../src')}/pug/pages/`;
 	const pagesArray = fs
 		.readdirSync(PAGES_DIR)
 		.filter((fileName) => fileName.endsWith('.pug'))

@@ -3,10 +3,14 @@
 	"transformers": {
 		"webp:*.{jpg,jpeg,png,tiff,webp}": [
 			"@parcel/transformer-image"
+		],
+		"*.html": [
+			"parcel-transformer-html-datasrc",
+			"..."
 		]
 	},
 	"namers": [
-		"parcel-namer-rewrite",
+		"parcel-namer-sorter",
 		"..."
 	],
 	"resolvers": [
