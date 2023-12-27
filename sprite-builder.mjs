@@ -17,7 +17,7 @@ const BUILD_DIR = `${path.resolve(__dirname, 'build')}/`;
 const imagesDir = `${BUILD_DIR}images/`;
 const spiteDir = `${imagesDir}sprite/`;
 
-const generateSprite = () => {
+export const generateSprite = () => {
 	const svgData = {};
 	fs.readdirSync(BUILD_DIR)
 		.filter((fileName) => fileName.endsWith('.html'))
@@ -87,5 +87,3 @@ const generateSprite = () => {
 
 	fs.writeFileSync(spiteDir.concat('sprite.svg'), spriteCode);
 };
-
-generateSprite();

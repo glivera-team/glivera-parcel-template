@@ -1,5 +1,5 @@
 import { page } from '../utils';
 
-page(() => {
+export const indexPage = page(() => {
 	console.log('homepage loaded');
 });

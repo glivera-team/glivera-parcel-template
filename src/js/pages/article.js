@@ -1,5 +1,5 @@
 import { page } from '../utils';
 
-page(() => {
+export const articlePage = page(() => {
 	console.log('article page loaded');
 });

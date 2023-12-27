@@ -158,12 +158,13 @@ export const pageLoad = (cb) => {
 };
 
 export const page = (cb) => {
-	if (!cb && !isFunction(cb)) return;
+	return cb;
+	// if (!cb && !isFunction(cb)) return;
 
-	if (window.loaded) {
-		cb();
-	} else {
-		if (!window.onWindowLoadCallbacks) window.onWindowLoadCallbacks = [];
-		window.onWindowLoadCallbacks.push(cb);
-	}
+	// if (window.loaded) {
+	// 	cb();
+	// } else {
+	// 	if (!window.onWindowLoadCallbacks) window.onWindowLoadCallbacks = [];
+	// 	window.onWindowLoadCallbacks.push(cb);
+	// }
 };

@@ -7,7 +7,7 @@ block vars
 block project_vars
 
 doctype
-html(lang="en" data-template-name= array.template_name)
+html(lang="en")
 	head
 		+head(array)
 	body(class= array.body_class)
@@ -19,5 +19,5 @@ html(lang="en" data-template-name= array.template_name)
 			+footer
 		block local_popup
 		script(type="module" src='/src/js/index.js')
-		script(type="module" src=`/src/js/pages/${array.template_name}.js`)
+		//- script(type="module" src=`/src/js/pages/${array.template_name}.js`)
 		+dev_widget

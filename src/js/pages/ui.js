@@ -1,5 +1,5 @@
 import { page } from '../utils';
 
-page(() => {
+export const uiPage = page(() => {
 	console.log('ui page loaded');
 });
