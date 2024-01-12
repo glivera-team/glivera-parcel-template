@@ -40,7 +40,7 @@ export const generateSprite = () => {
 				`;
 
 				svgData[iconName] = {
-					viewBox: svg.viewBox,
+					viewBox: svg.getAttribute('viewBox'),
 					paths: svg.innerHTML,
 				};
 
