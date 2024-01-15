@@ -48,7 +48,7 @@ export const generateSprite = () => {
 				svgWrap.innerHTML = useCode;
 			});
 
-			const newLayout = document.documentElement.outerHTML;
+			const newLayout = '<!DOCTYPE html>'.concat(document.documentElement.outerHTML);
 
 			fs.writeFileSync(path.resolve(BUILD_DIR, page), newLayout);
 		});
