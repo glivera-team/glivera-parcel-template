@@ -43,7 +43,11 @@ export default class SampleCanvas {
 	setupScene() {
 		/** Rendering: */
 		this.scene = new T.Scene();
-		this.renderer = new T.WebGLRenderer();
+		this.renderer = new T.WebGLRenderer({
+			alpha: true,
+			antialias: true,
+			precision: 'highp',
+		});
 		this.renderer.setPixelRatio(window.devicePixelRatio);
 		this.renderer.setSize(this.width, this.height);
 		this.renderer.setClearColor(0xeeeeee, 1);
