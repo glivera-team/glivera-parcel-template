@@ -337,6 +337,7 @@ mixin picture(data)
 			//- sub array of types, ex:[[jpg], [webp]]
 			each subType, j in type
 				- mimeType = subType === 'jpg' ? 'jpeg' : subType;
+				- mediaAttr = undefined
 
 				if media
 					- mediaAttr = i === 0 ? `(min-width: ${media}px)` : `(max-width: ${media - 1}px)`;
