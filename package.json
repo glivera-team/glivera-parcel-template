@@ -9,6 +9,7 @@
 	"scripts": {
 		"dev": "npm run start",
 		"start": "node dev-scripts/prebuild.mjs && parcel serve src/pug/pages/*.pug --open --port=8080",
+		"dev2": "node dev-scripts/prebuild.mjs && parcel serve src/pug/pages/*.pug --open --port=8081",
 		"build": "node dev-scripts/clear-cache.mjs && parcel build src/pug/pages/*.pug --dist-dir=build --no-source-maps --no-cache --no-content-hash --public-url=./ && node dev-scripts/postbuild.mjs",
 		"staging": "node dev-scripts/prebuild.mjs && cross-env STAGING=true npm run build && node dev-scripts/postbuild.mjs",
 		"debug": "node dev-scripts/prebuild.mjs && parcel serve src/pug/pages/*.pug --no-cache --port=8080",
@@ -45,6 +46,7 @@
 		"parcel-bundler": "^1.12.5",
 		"parcel-namer-sorter": "^0.1.3",
 		"parcel-plugin-ignore-assets": "^1.0.0",
+		"parcel-reporter-event-handler": "^0.1.10",
 		"parcel-resolver-exclude-assets": "^2.0.1",
 		"parcel-transformer-html-datasrc": "^1.3.3",
 		"prettier": "2.8.3",

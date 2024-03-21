@@ -16,5 +16,9 @@
 	"resolvers": [
 		"parcel-resolver-exclude-assets",
 		"@parcel/resolver-default"
+	],
+	"reporters": [
+		"parcel-reporter-event-handler",
+		"..."
 	]
 }
