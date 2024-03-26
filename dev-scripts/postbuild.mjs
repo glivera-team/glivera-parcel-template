@@ -76,7 +76,7 @@ buildData.forEach(({ rootUrl, fileName, fileUrl }, index) => {
 			fs.writeFileSync(file.fileUrl, newFileContent);
 		});
 
-		fs.renameSync(fileUrl, newFileUrl);
+		if (fs.existsSync(fileUrl)) fs.renameSync(fileUrl, newFileUrl);
 	}
 	// --------------------------------------------- remove first name###
 
