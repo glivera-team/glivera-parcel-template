@@ -12,7 +12,7 @@ window.NodeList.prototype.map = Array.prototype.map;
 window.NodeList.prototype.filter = Array.prototype.filter;
 window.Object.prototype.exist = function () {
 	// check if array empty or boolean check for other types
-	return Array.isArray(this) ? this?.length > 0 : !!this;
+	return Array.isArray(this) ? this?.length > 0 && this.every((item) => item.exist()) : !!this;
 };
 // --------------------------------------------- native javascript extends###
 
