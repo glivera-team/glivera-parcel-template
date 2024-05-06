@@ -1,6 +1,6 @@
 import Plyr from 'plyr';
 import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import 'plyr/dist/plyr.css';
 import 'ScssComponents/dynamic-video.scss';
 
