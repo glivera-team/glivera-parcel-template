@@ -2,10 +2,6 @@ import gsap from 'gsap';
 import SplitText from '../vendors/SplitText';
 // import { SPLIT_TEXT_ANIM_CLIP_PATH } from './constants';
 export const SPLIT_TEXT_ANIM_CLIP_PATH = 'polygon(0% 0%, 100% 0%, 100% 107%, 0% 107%)';
-.split-wrapper,
-.split-inner {
-	display: inline-block !important;
-}
 
 gsap.registerPlugin(SplitText);
 
