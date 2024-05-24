@@ -1,3 +1,12 @@
+import gsap from 'gsap';
+import SplitText from '../vendors/SplitText';
+// import { SPLIT_TEXT_ANIM_CLIP_PATH } from './constants';
+export const SPLIT_TEXT_ANIM_CLIP_PATH = 'polygon(0% 0%, 100% 0%, 100% 107%, 0% 107%)';
+.split-wrapper,
+.split-inner {
+	display: inline-block !important;
+}
+
 gsap.registerPlugin(SplitText);
 
 // workaround from docs
@@ -52,13 +61,16 @@ export const createSplitTextMarkup = (nodeArray) => {
 	if (!nodeArray?.length) return null;
 
 	const splitTextItems = nodeArray?.map(($item) => {
-		const splitInner = nestedLinesSplit($item, {
-			type: 'lines',
-			linesClass: 'split-inner',
-		});
 		const splitWrapper = nestedLinesSplit($item, {
 			type: 'lines',
 			linesClass: 'split-wrapper',
+			tag: 'p',
+		});
+
+		const splitInner = nestedLinesSplit(splitWrapper.lines, {
+			type: 'lines',
+			linesClass: 'split-inner',
+			tag: 'p',
 		});
 
 		return {
@@ -78,4 +90,16 @@ export const createSplitTextMarkup = (nodeArray) => {
 		items: splitTextItems.map((item) => item.lines).flat(1),
 		revert: () => splitTextItems.forEach((item) => item.revert()),
 	};
+};
+
+export const setSplitTextInitialStyles = (wrappers, inners, offset = true) => {
+	const tl = gsap.timeline();
+	tl.set(wrappers, {
+		clipPath: SPLIT_TEXT_ANIM_CLIP_PATH,
+	}).set(inners, {
+		willChange: 'transform',
+		yPercent: offset ? 110 : undefined,
+	});
+
+	return tl;
 };

@@ -13,17 +13,18 @@ export function splitTextAnimation() {
 				if (!splitText) return null;
 				const { wrappers, items, revert } = splitText;
 
-				setSplitTextInitialStyles(wrappers, items);
+				const animItems = wrappers.map(($item) => $item.firstChild);
+
+				setSplitTextInitialStyles(wrappers, animItems);
 
 				const revertTrigger = useAnimationTrigger({
 					target: $target,
 					options: {
 						ease: 'none',
 						duration: 0.6,
-						// markers: true,
 					},
 					animation: (animConfig) => {
-						const itemTl = gsap.timeline().to(items, {
+						const itemTl = gsap.timeline().to(animItems, {
 							yPercent: 0,
 							ease: 'power2.out',
 							stagger: {
