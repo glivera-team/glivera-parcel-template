@@ -1,3 +1,8 @@
+// .split-inner,
+// .split-wrapper {
+// 	display: block;
+// }
+
 import gsap from 'gsap';
 import SplitText from '../vendors/SplitText';
 // import { SPLIT_TEXT_ANIM_CLIP_PATH } from './constants';
@@ -60,13 +65,13 @@ export const createSplitTextMarkup = (nodeArray) => {
 		const splitWrapper = nestedLinesSplit($item, {
 			type: 'lines',
 			linesClass: 'split-wrapper',
-			tag: 'p',
+			tag: 'span',
 		});
 
 		const splitInner = nestedLinesSplit(splitWrapper.lines, {
 			type: 'lines',
 			linesClass: 'split-inner',
-			tag: 'p',
+			tag: 'span',
 		});
 
 		return {
