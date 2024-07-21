@@ -44,7 +44,7 @@
 		"lint-staged": "^13.1.0",
 		"parcel": "2.0.1",
 		"parcel-bundler": "1.12.5",
-		"parcel-namer-sorter": "0.1.7",
+		"parcel-namer-sorter": "0.1.8",
 		"parcel-plugin-ignore-assets": "1.0.0",
 		"parcel-reporter-event-handler": "0.1.10",
 		"parcel-resolver-exclude-assets": "2.0.1",
