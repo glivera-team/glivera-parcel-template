@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
 import { generateSprite } from './sprite-builder.mjs';
+import { phpBuild } from './php-builder.mjs';
 
 generateSprite();
 
@@ -82,3 +82,4 @@ const createUnifiedJsCssFiles = () => {
 };
 
 createUnifiedJsCssFiles();
+phpBuild();
