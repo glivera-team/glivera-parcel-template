@@ -1,6 +1,6 @@
 //- forms example
 
-+form_input({
++formInput({
 	type: 'text',
 	label: 'its input',
 	placeholder: 'its placeholder',
@@ -8,13 +8,13 @@
 	id: 'input_1',
 })
 
-+form_textarea({
++formTextarea({
 	label: 'its textarea',
 	placeholder: 'its placeholder',
 	id: 'textarea_1',
 })
 
-+form_select({
++formSelect({
 	label: 'its select',
 	options: [
 		{
@@ -30,12 +30,12 @@
 	id: 'select_1',
 })
 
-+form_checkbox({
++formCheckbox({
 	label: 'checkbox label',
 	checked: false,
 })
 
-+form_radio({
++formRadio({
 	label: 'radio label',
 	checked: false,
 })
@@ -43,7 +43,7 @@
 
 //form mixins v2
 
-form.form(action='#', method='POST')
+form.form(action='#' method='POST')
 	.form-col
 		+input({
 			mods: 'add_any_mods',
