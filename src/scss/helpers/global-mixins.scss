@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@mixin overflow-text($line) {
+@mixin overflow_text($line) {
 	display: -webkit-box;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -13,7 +13,7 @@
 	@return map-get($z-index, $key);
 }
 
-@mixin z-index($key) {
+@mixin z_index($key) {
 	z-index: z-index($key);
 }
 
@@ -122,7 +122,7 @@
 	}
 }
 
-@mixin dashed-border($dashlength, $spacelength, $borderwidth, $color) {
+@mixin dashed_border($dashlength, $spacelength, $borderwidth, $color) {
 	$per: percentage($dashlength / ($dashlength + $spacelength));
 	background-image: linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per), linear-gradient(to bottom, $color 0%, $color $per, rgba(0, 0, 0, 0) $per),
 		linear-gradient(to right, $color 0%, $color $per, rgba(0, 0, 0, 0) $per), linear-gradient(to bottom, $color 0%, $color $per, rgba(0, 0, 0, 0) $per);
