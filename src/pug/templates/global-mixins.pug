@@ -200,14 +200,6 @@ mixin formRadio(data)
 			)
 			span(class=labelClass)!= data.label
 
-
-mixin formQuantity(min, max)
-	.form_quantity.js-quantity
-		button.form_quantity__btn.js-quantity-decrease(type='button' aria-label='decrease quantity')
-		input.form_quantity__input.js-quantity-input(type='number' name='quantity' min=min max=max value=min)
-		.form_quantity__value.js-quantity-value= min
-		button.form_quantity__btn.js-quantity-increase(type='button' aria-label='increase quantity')
-
 //- form element v3###
 
 //- works
@@ -237,17 +229,16 @@ mixin breadcrumbs(data)
 						a.breadcrumbs__link(href=crumb.url)= crumb.text
 
 //- works
-mixin menu(menuArray)
-	- gl_mod = menuArray.gl_mod || '';
-	ul(class=`${menuArray.gl_class}__list `)
-		each item in menuArray.items
+mixin menu(list)
+	ul(class='menu__list')
+		each item in list
 			- url = item.url || '#';
 			li(
-				class=`${menuArray.gl_class}__item ${item.active ? `${menuArray.gl_class}__item--active_mod` : ''} ${gl_mod ? `${menuArray.gl_class}__item--${gl_mod}` : ''}`
+				class=`menu__item ${item.active ? `menu__item--active_mod` : ''}`
 			)
 				a(
 					href=url,
-					class=`${menuArray.gl_class}__link ${gl_mod ? `${menuArray.gl_class}__link--${gl_mod}` : ''}`
+					class='menu__link'
 				)= item.title
 
 //- works
