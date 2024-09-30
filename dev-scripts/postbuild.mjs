@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
 import { generateSprite } from './sprite-builder.mjs';
+import { phpBuild } from './php-builder.mjs';
 
 generateSprite();
 
@@ -33,64 +33,53 @@ const selectFilesRecursive = (rootUrl, onMatch) => {
 
 // ---------------------------------------------
 const buildDir = path.resolve(__dirname, '../build');
-const buildData = [];
-selectFilesRecursive(buildDir, (fileData) => {
-	buildData.push(fileData);
-});
-// ---------------------------------------------###
 
-// ---------------------------------------------
-// const srcDir = path.resolve(__dirname, '../src');
-// const srcData = [];
-// selectFilesRecursive(srcDir, (fileData) => {
-// 	srcData.push(fileData);
-// });
-// ---------------------------------------------###
+const createUnifiedJsCssFiles = () => {
+	const buildData = [];
+	selectFilesRecursive(buildDir, (fileData) => {
+		buildData.push(fileData);
+	});
 
-// ---------------------------------------------
+	const updateUnifiedJsCssFilePaths = () => {
+		buildData.forEach(({ rootUrl, fileName, fileUrl }, index) => {
+			const extName = path.extname(fileName);
+			let newFileName = fileName;
+			let newFileUrl = fileUrl;
+			// --------------------------------------------- remove hashes
+			// const fileNameArray = fileName.split('.');
+			// if (fileNameArray.length > 2) fileNameArray.splice(-2, 1);
+			// const newFileName = fileNameArray.join('.');
+			// const newFileUrl = rootUrl.concat('/').concat(newFileName);
+			// fs.renameSync(fileUrl, newFileUrl);
+			// --------------------------------------------- remove hashes###
 
-buildData.forEach(({ rootUrl, fileName, fileUrl }, index) => {
-	const extName = path.extname(fileName);
-	let newFileName = fileName;
-	let newFileUrl = fileUrl;
-	// --------------------------------------------- remove hashes
-	// const fileNameArray = fileName.split('.');
-	// if (fileNameArray.length > 2) fileNameArray.splice(-2, 1);
-	// const newFileName = fileNameArray.join('.');
-	// const newFileUrl = rootUrl.concat('/').concat(newFileName);
-	// fs.renameSync(fileUrl, newFileUrl);
-	// --------------------------------------------- remove hashes###
+			if (extName === '.js' || extName === '.css') {
+				newFileName = 'app'.concat(extName);
+				newFileUrl = rootUrl.concat('/').concat(newFileName);
 
-	// --------------------------------------------- remove first name
-	if (extName === '.js' || extName === '.css') {
-		newFileName = 'app'.concat(extName);
-		newFileUrl = rootUrl.concat('/').concat(newFileName);
+				buildData.forEach((file) => {
+					const ext = path.extname(file.fileName);
+					if (file.fileUrl === fileUrl || ext !== '.html') return;
 
-		buildData.forEach((file) => {
-			const ext = path.extname(file.fileName);
-			if (file.fileUrl === fileUrl || ext !== '.html') return;
+					const fileContent = fs.readFileSync(file.fileUrl, 'utf8');
+					const regEx = new RegExp(fileName, 'g');
+					const newFileContent = fileContent.replace(regEx, newFileName);
+					fs.writeFileSync(file.fileUrl, newFileContent);
+				});
 
-			const fileContent = fs.readFileSync(file.fileUrl, 'utf8');
-			const regEx = new RegExp(fileName, 'g');
-			const newFileContent = fileContent.replace(regEx, newFileName);
-			fs.writeFileSync(file.fileUrl, newFileContent);
+				if (fs.existsSync(fileUrl)) fs.renameSync(fileUrl, newFileUrl);
+			}
+
+			buildData[index] = {
+				rootUrl,
+				fileName: newFileName,
+				fileUrl: newFileUrl,
+			};
 		});
-
-		if (fs.existsSync(fileUrl)) fs.renameSync(fileUrl, newFileUrl);
-	}
-	// --------------------------------------------- remove first name###
-
-	buildData[index] = {
-		rootUrl,
-		fileName: newFileName,
-		fileUrl: newFileUrl,
 	};
 
-	// --------------------------------------------- set directory
+	updateUnifiedJsCssFilePaths();
+};
 
-	// --------------------------------------------- set directory###
-
-	// --------------------------------------------- update content
-
-	// --------------------------------------------- update content###
-});
+createUnifiedJsCssFiles();
+phpBuild();

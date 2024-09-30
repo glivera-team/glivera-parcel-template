@@ -394,3 +394,7 @@ mixin dev_widget
 					li.widget_item
 						a.widget_link(href=item)= item
 
+mixin deploy_time
+	if process.env.STAGING === 'true'
+		- deployTime = new Date();
+		!= `<script type="text/javascript">console.log('Last version deployed at: ${deployTime}');</script>`
