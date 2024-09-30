@@ -5,15 +5,17 @@ import '../scss/main-global.scss';
 import { documentReady } from 'utils';
 import { ENV_STATUS } from 'utils/constants';
 import app from './app';
+import { exist } from './utils';
 
 // --------------------------------------------- native javascript extends
-
 window.NodeList.prototype.map = Array.prototype.map;
 window.NodeList.prototype.filter = Array.prototype.filter;
-window.Object.prototype.exist = function () {
-	// check if array empty or boolean check for other types
-	return Array.isArray(this) ? this?.length > 0 && this.every((item) => item.exist()) : !!this;
-};
+window.exist = exist;
+window.NodeList.prototype.exist = exist;
+window.Node.prototype.exist = exist;
+window.Number.prototype.exist = exist;
+window.String.prototype.exist = exist;
+window.Array.prototype.exist = exist;
 // --------------------------------------------- native javascript extends###
 
 const styles = ['color: #fff', 'background: #cf8e1f'].join(';');
