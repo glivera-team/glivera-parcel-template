@@ -71,6 +71,12 @@
 	}
 }
 
+@mixin print_style() {
+	@media print {
+		@content;
+	}
+}
+
 @mixin triangle_narrow($side, $color, $size) {
 	$narrow_size: $size/2;
 	@if $side == left {
