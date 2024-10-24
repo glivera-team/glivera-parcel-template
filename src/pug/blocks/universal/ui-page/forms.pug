@@ -1,18 +1,18 @@
 form.ui_form
 	ul.ui_form__list
 		//- form component
-		+form_item({})
-			+form_input({
+		+formItem({})
+			+formInput({
 				type: 'text',
 				label: 'Default input 1',
 				placeholder: 'Placeholder',
 				value: '',
 				id: 'input_1',
 			})
-		
+
 		//- form component
-		+form_item({})
-			+form_input({
+		+formItem({})
+			+formInput({
 				type: 'text',
 				label: 'Default input 2',
 				placeholder: 'Placeholder',
@@ -21,18 +21,18 @@ form.ui_form
 			})
 
 		//- form component
-		+form_item({
+		+formItem({
 			mod: 'ui_form__item--full_mod'
 		})
-			+form_textarea({
+			+formTextarea({
 				label: 'Default textarea',
 				placeholder: 'Placeholder',
 				id: 'textarea_1',
 			})
 
 		//- form component
-		+form_item({})
-			+form_select({
+		+formItem({})
+			+formSelect({
 				label: 'Default select 1',
 				options: [
 					{
@@ -49,8 +49,8 @@ form.ui_form
 			})
 
 		//- form component
-		+form_item({})
-			+form_select({
+		+formItem({})
+			+formSelect({
 				label: 'Default select 2',
 				options: [
 					{
@@ -67,32 +67,32 @@ form.ui_form
 			})
 
 		//- form component
-		+form_item({
+		+formItem({
 			title: 'Checkboxes'
 		})
 			.ui_form__subitem
-				+form_checkbox({
+				+formCheckbox({
 					label: 'checkbox label 1',
 					checked: false,
 				})
 			.ui_form__subitem
-				+form_checkbox({
+				+formCheckbox({
 					label: 'checkbox label 2',
 					checked: false,
 				})
 
 		//- form component
-		+form_item({
+		+formItem({
 			title: 'Radio buttons'
 		})
 			.ui_form__subitem
-				+form_radio({
+				+formRadio({
 					label: 'radio label 1',
 					name: 'radio_1',
 					checked: false,
 				})
 			.ui_form__subitem
-				+form_radio({
+				+formRadio({
 					label: 'radio label 2',
 					name: 'radio_1',
 					checked: false,

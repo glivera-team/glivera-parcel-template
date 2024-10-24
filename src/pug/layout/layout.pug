@@ -10,15 +10,15 @@ doctype
 html(lang="en")
 	head
 		+head(array)
-	body(class= array.body_class)
+	body(class= array.bodyClass)
 		.preloader
 		+header
-		.wrapper(class= array.layout_mod)
-			.base(class= array.layout_mod)
+		.wrapper(class= array.layoutMod)
+			.base(class= array.layoutMod)
 				block content_block
 			+footer
 		block local_popup
 		script(type="module" src='/src/js/index.js')
 		//- script(type="module" src=`/src/js/pages/${array.template_name}.js`)
-		+dev_widget
-		+deploy_time
+		+devWidget
+		+deployTime
